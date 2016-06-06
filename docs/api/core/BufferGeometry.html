@@ -8,7 +8,7 @@
 		<link type="text/css" rel="stylesheet" href="page.css" />
 	</head>
 	<body>
-		<h1>[name]</h1>
+		<h1>[name]缓冲区几何体</h1>
 
 		<div class="desc">
 		<p>
@@ -20,9 +20,13 @@
 		access the raw data from the appropriate [page:BufferAttribute attribute] buffer. This makes
 		BufferGeometry best-suited for static objects where you don't need to manipulate the geometry much
 		after instantiating it.
+		这个类是Geometry的一个高效替代，因为它储存了所以数据在缓冲区中，包括顶点的位置、面的标定、法线、色彩、
+		贴图坐标和自定义的属性，这减少了数据传入GPU的成本，但也让BufferGeometry工作起来比Geometry要困难。
+		BufferGeometry使我们能够直接访问来自缓冲区的原始数据，如，直接访问位置数据而不是Vector3对象、色彩数据
+		而不是Color对象等。 BufferGeometry最适合于静态对象，像在实例化以后就不需要进行操作的几何体。
 		</p>
 
-		<h3>Example</h3>
+		<h3>Example示例</h3>
 		<code>
 		var geometry = new THREE.BufferGeometry();
 		// create a simple square shape. We duplicate the top left and bottom right
